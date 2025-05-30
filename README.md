@@ -63,8 +63,10 @@ matrixName.print(); // Prints out the matrix
 
 ---
 
-### Who am I?:
+## 🙋‍♂️ Who am I?
 
-Im Omar, a software engineering student working on cool micro-libraries and low level C++ experiments.
-This is a part of my learning journey and portofolio and I'm having a blast building it.
+I'm Omar, a software engineering student working on cool micro-libraries
+and low-level C++ experiments. This is a part of my learning journey and
+portfolio, and I'm having a blast building it.
+
 
