@@ -34,15 +34,15 @@ matrix matrixName(6, 6, 5);   // Creates a 6x6 matrix filled with 5s
 
 
 
-- **Built in print() method for a nice and easy way of printing a matrix
+- **Built in ```print()``` method for a nice and easy way of printing a matrix**
 
 ```cpp
 matrixName.print(); // Prints out the matrix
 ```
 
-- **Supports ```.at()```method similar to how std::vector does it, can chain .at() and throws range_error if out of index range 
+- **Supports ```.at()```method similar to how std::vector does it, can chain .at() and throws range_error if out of index range**
 
-- **Supports ```.size()``` for returning size of current row/colum
+- **Supports ```.size()``` for returning size of current row/colum**
 
 
 ---
