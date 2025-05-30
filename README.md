@@ -58,6 +58,8 @@ matrixName.print(); // Prints out the matrix
 
 - **```.identity``` for transforming a matrix into identity matrix and much more...**
 
+- ** Templating the class**
+
 
 ---
 
