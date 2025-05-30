@@ -1,2 +1,2 @@
 # ClassMatrix
-Library which models a mathematical matrix in C//
+Library which models a mathematical matrix in C++
