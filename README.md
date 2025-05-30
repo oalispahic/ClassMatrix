@@ -1,38 +1,35 @@
+This project is licensed under the [MIT License](LICENSE).
 # ClassMatrix
 
-Library which models a mathematical matrix in C++
+**A lightweight C++ library that models a mathematical matrix using raw C-style dynamic arrays.**
 
+---
 
+This library allows you to easily create, manipulate, and perform mathematical operations on matrices — built from scratch using raw pointers.
 
+---
 
-This library is used to simply create a matrix and manipulate it.
+### ✨ Features
 
-Features:
+- Clean and simple syntax  
+- Easy to use and extend  
+- Mathematical methods (coming soon)  
+- Fast, raw memory management with dynamically allocated arrays  
 
--Clean syntax
+---
 
--Easy to use
+### 📦 Overview
 
--Mathematical methods
+Currently supports:
 
--Uses C-style arrays dynamically allocated so its fast
+- **Default constructor** → creates a 3x3 null matrix  
+- **Parameterized constructor** → takes row/column size and an optional fill value  
 
-
-
-
-Overview:
-
-Right now the library has a default constructor which creates a 3x3 null matrix.
-
-A constructor which accepts the dimensions of a matrix and an optional value to fill in the matrix
-
-To create a matrix simply write:
-
-matrix matrixName(); -----> Creates a 3x3 null matrix
-
-matrix matrixName(5,5) -----> Creates a 5x5 null matrix
-
-matrix matrixName(6,6,5) -----> Creates a 6x6 matrix with all 6 elements
+```cpp
+matrix matrixName;            // Creates a 3x3 null matrix  
+matrix matrixName(5, 5);      // Creates a 5x5 null matrix  
+matrix matrixName(6, 6, 5);   // Creates a 6x6 matrix filled with 5s  
+```
 
 
 
