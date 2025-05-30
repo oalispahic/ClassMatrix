@@ -34,29 +34,27 @@ matrix matrixName(6, 6, 5);   // Creates a 6x6 matrix filled with 5s
 
 
 
-Built in print() method for a nice and easy way of printing a matrix
+- **Built in print() method for a nice and easy way of printing a matrix
 
-matrixName.print(); -----> Prints out the matrix
+```cppmatrixName.print(); → Prints out the matrix```
 
-Supports .at() method similar to how std::vector does it, can chain .at() and throws range_error if out of index range 
+- **Supports .at() method similar to how std::vector does it, can chain .at() and throws range_error if out of index range 
 
-Supports .size() for returning size of current row/colum
-
-
+- **Supports .size() for returning size of current row/colum
 
 
-Work in progress:
 
 
-Overloading operators "<" ">" "=" "==" "[]" "+" "-" "*" 
+###🚧 Work in progress:
 
-.inverse() method for an instant inverted matrix
 
-.resize() for dynamically resizing the matrix
+- **Overloading operators "<" ">" "=" "==" "[]" "+" "-" "*" **
 
-.identity for transforming a matrix into identity matrix
+- **.inverse() method for an instant inverted matrix**
 
-and much more...
+- **.resize() for dynamically resizing the matrix**
+
+- **.identity for transforming a matrix into identity matrix and much more...**
 
 
 
@@ -64,5 +62,5 @@ and much more...
 Who am I?:
 
 Im Omar, a software engineering student working on cool micro-libraries and low level C++ experiments.
- This is a part of my learning journey and portofolio and I'm having a blast building it.
+This is a part of my learning journey and portofolio and I'm having a blast building it.
 
