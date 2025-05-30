@@ -3,6 +3,8 @@
 Library which models a mathematical matrix in C++
 
 
+
+
 This library is used to simply create a matrix and manipulate it.
 
 Features:
@@ -14,6 +16,8 @@ Features:
 -Mathematical methods
 
 -Uses C-style arrays dynamically allocated so its fast
+
+
 
 
 Overview:
@@ -31,6 +35,8 @@ matrix matrixName(5,5) -----> Creates a 5x5 null matrix
 matrix matrixName(6,6,5) -----> Creates a 6x6 matrix with all 6 elements
 
 
+
+
 Built in print() method for a nice and easy way of printing a matrix
 
 matrixName.print(); -----> Prints out the matrix
@@ -40,7 +46,10 @@ Supports .at() method similar to how std::vector does it, can chain .at() and th
 Supports .size() for returning size of current row/colum
 
 
+
+
 Work in progress:
+
 
 Overloading operators "<" ">" "=" "==" "[]" "+" "-" "*" 
 
@@ -51,6 +60,8 @@ Overloading operators "<" ">" "=" "==" "[]" "+" "-" "*"
 .identity for transforming a matrix into identity matrix
 
 and much more...
+
+
 
 
 Who am I?:
