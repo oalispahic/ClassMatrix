@@ -35,6 +35,11 @@ class matrix {
 private:
     int row, col;
     double **data;
+    void redirect(matrix &&temp){
+        data = temp.data;
+        row = temp.col;
+        col = temp.row;
+    }
 public:
     matrix() : row(3), col(3) {
 
