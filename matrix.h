@@ -8,22 +8,27 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <new>
+#include <cstdlib>
+#include <exception>
 
-class rowCheck{
+class rowCheck {
 private:
     double *row_data;
     int cols;
 public:
-    rowCheck(double *row_data, int cols): row_data(row_data), cols(cols){}
-    int size() const {return cols;}
-    double& at(int j) {
+    rowCheck(double *row_data, int cols) : row_data(row_data), cols(cols) {}
+
+    int size() const { return cols; }
+
+    double &at(int j) {
         return row_data[j];
     }
-    operator double*(){
+
+    operator double *() {
         return row_data;
     }
 };
-
 
 
 class matrix {
@@ -32,9 +37,22 @@ private:
     double **data;
 public:
     matrix() : row(3), col(3) {
-        data = new double *[row];
+
+        data = new(std::nothrow) double *[row];
+        if (data == nullptr) {
+            std::cerr << "Memory allocation failed";
+            std::terminate();
+        }
         for (int i = 0; i < row; i++) {
-            data[i] = new double[col];
+            data[i] = new(std::nothrow) double[col];
+            if (data[i] == nullptr) {
+                std::cerr << "Memory allocation failed";
+                for (int j = 0; j < i; j++) {
+                    delete[] data[j];
+                }
+                delete[]data;
+                std::terminate();
+            }
         }
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
@@ -42,18 +60,32 @@ public:
             }
         }
 
+
     }
 
     matrix(int row, int col, double value = 0) : row(row), col(col) {
-        data = new double *[row];
+        data = new(std::nothrow) double *[row];
+        if (data == nullptr) {
+            std::cerr << "Memory allocation failed";
+            std::terminate();
+        }
         for (int i = 0; i < row; i++) {
-            data[i] = new double[col];
+            data[i] = new(std::nothrow) double[col];
+            if (data[i] == nullptr) {
+                std::cerr << "Memory allocation failed";
+                for (int j = 0; j < i; j++) {
+                    delete[] data[j];
+                }
+                delete[]data;
+                std::terminate();
+            }
         }
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 data[i][j] = value;
             }
         }
+
 
     }
 
@@ -68,9 +100,9 @@ public:
         return row;
     }
 
-    rowCheck at(int i){
-        if(i>col) throw std::range_error("Index out of range");
-        return rowCheck(data[i],col);
+    auto nth(int i) {
+        if (i > row * col) throw std::range_error("Index out of range");
+        return *(rowCheck(data[i], col));
     }
 
     void print() {
