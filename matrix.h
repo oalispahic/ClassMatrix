@@ -35,11 +35,13 @@ class matrix {
 private:
     int row, col;
     double **data;
-    void redirect(matrix &&temp){
+
+    void redirect(matrix &&temp) {
         data = temp.data;
         row = temp.col;
         col = temp.row;
     }
+
 public:
     matrix() : row(3), col(3) {
 
@@ -89,6 +91,32 @@ public:
             for (int j = 0; j < col; j++) {
                 data[i][j] = value;
             }
+        }
+
+
+    }
+
+    matrix(std::initializer_list<std::initializer_list<double>> const &list_data) {
+        int size = list_data.size();
+        row = list_data.size();
+        col = list_data.begin()->size();
+        data = new(std::nothrow) double *[size];
+        if (!data) {
+            std::cerr << "Memory allocation failed";
+            std::terminate();
+        }
+        auto inner_data = list_data.begin();
+
+        for (int i = 0; i < size; i++) {
+            auto num = inner_data->begin();
+            int inner_size = inner_data->size();
+            data[i] = new double[inner_size];
+            for (int j = 0; j < inner_size; j++) {
+
+                data[i][j] = *num;
+                num++;
+            }
+
         }
 
 
