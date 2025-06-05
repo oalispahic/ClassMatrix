@@ -35,6 +35,7 @@ class matrix {
 private:
     int row, col;
     double **data;
+    int *element_number_row;
 
     void redirect(matrix &&temp) {
         data = temp.data;
@@ -46,6 +47,7 @@ public:
     matrix() : row(3), col(3) {
 
         data = new(std::nothrow) double *[row];
+        element_number_row = new int[col];
         if (data == nullptr) {
             std::cerr << "Memory allocation failed";
             std::terminate();
@@ -65,7 +67,10 @@ public:
             for (int j = 0; j < col; j++) {
                 data[i][j] = 0;
             }
+            *element_number_row = row;
+            ++element_number_row;
         }
+        element_number_row-=row;
 
 
     }
@@ -105,21 +110,26 @@ public:
             std::cerr << "Memory allocation failed";
             std::terminate();
         }
-        auto inner_data = list_data.begin();
+
+        element_number_row = new int [row];
 
         for (int i = 0; i < size; i++) {
+            auto inner_data = list_data.begin() + i;
             auto num = inner_data->begin();
             int inner_size = inner_data->size();
+            *element_number_row = inner_size;
             data[i] = new double[inner_size];
             for (int j = 0; j < inner_size; j++) {
-
                 data[i][j] = *num;
                 num++;
             }
-
+            if (col < inner_size) col = inner_size;
+            ++element_number_row;
         }
+        element_number_row-=row;
 
-
+        std::cout<<"THIS IS YOUR ROW SIZE"<<row<<std::endl;
+        std::cout<<"THIS IS YOUR COL SIZE"<<col<<std::endl;
     }
 
     ~matrix() {
@@ -140,7 +150,7 @@ public:
 
     void print() {
         for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
+            for (int j = 0; j < element_number_row[i] ;j++) {
                 std::cout << data[i][j] << " ";
             }
             std::cout << std::endl;
