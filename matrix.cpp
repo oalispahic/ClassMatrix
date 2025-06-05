@@ -9,8 +9,13 @@ int main(){
     auto number = matrica.nth(31);
     std::cout<<(number);*/
 
-   matrix test = {{1,2,3},{1,2,3},{1,2,3}};
+   matrix test = {{1,2,3},
+                  {3,6,3},
+                  {1,9,5,4}};
    test.print();
+   std::cout<<std::endl;
+   matrix test2;
+   test2.print();
 
 
 
